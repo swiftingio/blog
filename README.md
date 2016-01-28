@@ -1,2 +1,2 @@
-# blog
-Supporting materials for swifting.io blog posts
+# Blog
+Supporting materials for \[swifting.io](https://swifting.io) blog posts.
