@@ -1,0 +1,23 @@
+{
+  "name": "bwParseServer",
+  "version": "1.0.0",
+  "description": "Parse API server",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.2.x",
+    "kerberos": "~0.0.x",
+    "parse": "~1.6.12",
+    "parse-server": "~2.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=4.1"
+  }
+}
