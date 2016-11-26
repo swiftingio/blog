@@ -9,24 +9,24 @@ struct SupportMe{
 class IntentHandler: INExtension{
 }
 
-extension IntentHandler: INSearchForMessagesIntentHandling{
-    func handle(searchForMessages intent: INSearchForMessagesIntent, completion: (INSearchForMessagesIntentResponse) -> Void){
-        let userActivity = NSUserActivity(activityType: String(INSearchForMessagesIntent.self))
+extension IntentHandler: INSearchForMessagesIntentHandling {
+    func handle(searchForMessages intent: INSearchForMessagesIntent, completion: @escaping (INSearchForMessagesIntentResponse) -> Void){
+        let userActivity = NSUserActivity(activityType: String(describing: INSearchForMessagesIntent.self))
         let response = INSearchForMessagesIntentResponse(code: .success, userActivity: userActivity)
         response.messages = [SupportMe.articles[0]]
         completion(response)
     }
 }
 
-extension IntentHandler: INSendMessageIntentHandling{
+extension IntentHandler: INSendMessageIntentHandling {
     //MARK: - INSendMessageIntentHandling
-    func handle(sendMessage intent: INSendMessageIntent, completion: (INSendMessageIntentResponse) -> Swift.Void){
+    func handle(sendMessage intent: INSendMessageIntent, completion: @escaping (INSendMessageIntentResponse) -> Swift.Void){
         let userActivity = NSUserActivity(activityType: NSStringFromClass(INSendMessageIntent.self))
         let response = INSendMessageIntentResponse(code: .success, userActivity: userActivity)
         completion(response)
     }
     
-    func confirm(sendMessage intent: INSendMessageIntent, completion: (INSendMessageIntentResponse) -> Swift.Void){
+    func confirm(sendMessage intent: INSendMessageIntent, completion: @escaping (INSendMessageIntentResponse) -> Swift.Void){
         completion(INSendMessageIntentResponse.init(code: INSendMessageIntentResponseCode.success, userActivity: nil))
     }
 }
