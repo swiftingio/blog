@@ -29,4 +29,12 @@ extension IntentHandler: INSendMessageIntentHandling {
     func confirm(sendMessage intent: INSendMessageIntent, completion: @escaping (INSendMessageIntentResponse) -> Swift.Void){
         completion(INSendMessageIntentResponse.init(code: INSendMessageIntentResponseCode.success, userActivity: nil))
     }
+    
+    func resolveRecipients(forSendMessage intent: INSendMessageIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void) {
+        print(intent.recipients?.first?.nameComponents?.familyName ?? "")
+        print(intent.recipients?.first?.nameComponents?.givenName ?? "")
+        let result = INPersonResolutionResult.success(with: SupportMe.systems[0])
+        completion([result])
+        
+    }
 }
