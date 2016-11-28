@@ -1,4 +1,5 @@
 import CoreData
+import Foundation
 
 final class CoreDataStack {
     static let sharedStack = CoreDataStack()
@@ -20,8 +21,8 @@ final class CoreDataStack {
     }
     
     
-    lazy var applicationDocumentsDirectory: NSURL = {
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    lazy var libraryDirectory: NSURL = {
+        let urls = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)
         return urls[urls.count-1] as NSURL
     }()
     
@@ -34,7 +35,7 @@ final class CoreDataStack {
     
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.appendingPathComponent("DataModel.sqlite")
+        let url = self.libraryDirectory.appendingPathComponent("DataModel.sqlite")
         do {
             try coordinator.addPersistentStore(ofType: NSSQLiteStoreType,
                                                configurationName: nil,
