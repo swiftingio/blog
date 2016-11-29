@@ -25,9 +25,18 @@ class ViewController: UIViewController {
                     message = "Not determined"
                 }
             DispatchQueue.main.async(execute: {
+                self.registerVocabulary()
                 print(message)
             })
         }
+    }
+    
+    func registerVocabulary(){
+        let contactsNames = NSOrderedSet(array: ["Bee Jee","Mooo Hooo"])
+    
+        
+        let vocabulary = INVocabulary.shared()
+        vocabulary.setVocabularyStrings(contactsNames, of: .contactName)
     }
 }
 

@@ -27,6 +27,8 @@
 			<key>IntentsSupported</key>
 			<array>
 				<string>INStartWorkoutIntent</string>
+				<string>INSendMessageIntent</string>
+				<string>INSearchForMessagesIntent</string>
 			</array>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>

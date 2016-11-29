@@ -29,6 +29,7 @@
 		90A982C61D2D94AC00418D24 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A982C01D2D949D00418D24 /* Contacts.framework */; };
 		90A982C71D2D94AC00418D24 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A982C11D2D949D00418D24 /* ContactsUI.framework */; };
 		90A982C81D2D955800418D24 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A982B81D2D71CD00418D24 /* Intents.framework */; };
+		BD01CEFB1DEC5C0F008ED66A /* SiriIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 90A9829E1D2D70FC00418D24 /* SiriIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 90A982941D2D70FC00418D24;
 			remoteInfo = SiriIntent;
+		};
+		BD01CEFC1DEC5C0F008ED66A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90A982741D2D70C400418D24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90A9829D1D2D70FC00418D24;
+			remoteInfo = SiriIntentUI;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -49,6 +57,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				90A982AE1D2D70FC00418D24 /* SiriIntent.appex in Embed App Extensions */,
+				BD01CEFB1DEC5C0F008ED66A /* SiriIntentUI.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +211,7 @@
 			);
 			dependencies = (
 				90A982AD1D2D70FC00418D24 /* PBXTargetDependency */,
+				BD01CEFD1DEC5C0F008ED66A /* PBXTargetDependency */,
 			);
 			name = SupportMe;
 			productName = SupportMe;
@@ -249,12 +259,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Michal Wojtysiak";
 				TargetAttributes = {
 					90A9827B1D2D70C400418D24 = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Siri = {
 								enabled = 1;
@@ -263,11 +273,11 @@
 					};
 					90A982941D2D70FC00418D24 = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					90A9829D1D2D70FC00418D24 = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -353,6 +363,11 @@
 			target = 90A982941D2D70FC00418D24 /* SiriIntent */;
 			targetProxy = 90A982AC1D2D70FC00418D24 /* PBXContainerItemProxy */;
 		};
+		BD01CEFD1DEC5C0F008ED66A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90A9829D1D2D70FC00418D24 /* SiriIntentUI */;
+			targetProxy = BD01CEFC1DEC5C0F008ED66A /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -398,8 +413,10 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -445,8 +462,10 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -478,6 +497,7 @@
 				CODE_SIGN_ENTITLEMENTS = SupportMe/SupportMe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SupportMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftingio.SupportMe;
@@ -494,6 +514,7 @@
 				CODE_SIGN_ENTITLEMENTS = SupportMe/SupportMe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SupportMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftingio.SupportMe;
@@ -507,6 +528,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SiriIntentUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftingio.SupportMe.SiriIntentUI;
@@ -521,6 +543,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SiriIntentUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftingio.SupportMe.SiriIntentUI;
@@ -535,6 +558,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SiriIntent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftingio.SupportMe.SiriIntent;
@@ -549,6 +573,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SiriIntent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftingio.SupportMe.SiriIntent;

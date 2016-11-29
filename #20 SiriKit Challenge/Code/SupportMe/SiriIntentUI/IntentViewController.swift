@@ -17,6 +17,9 @@ import IntentsUI
 
 class IntentViewController: UIViewController, INUIHostedViewControlling {
     
+    @IBOutlet weak var textfield: UITextField!
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,14 +30,27 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - INUIHostedViewControlling
+    //MARK: - INUIHostedViewControlling
+    //NOTE: Add IntentUI to embedded binaries in main app.
     
     // Prepare your view controller for the interaction to handle.
     func configure(with interaction: INInteraction!, context: INUIHostedViewContext, completion: ((CGSize) -> Void)!) {
         // Do configuration here, including preparing views and calculating a desired size for presentation.
+        print(interaction.intent.identifier ?? "")
+        if let sendMessageIntent =  interaction.intent as? INSendMessageIntent{
+            textfield.text = sendMessageIntent.content
+            label.text = sendMessageIntent.recipients?.first?.displayName
+            statusLabel.text = "\(interaction.intentHandlingStatus.rawValue)"
+        }else{
+            textfield.text = "not sending"
+                label.text = "not sending"
+        }
+        
         
         if let completion = completion {
-            completion(self.desiredSize)
+            var size = self.desiredSize
+            size.height = 100.0
+            completion(size)
         }
     }
     

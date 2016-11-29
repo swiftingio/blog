@@ -21,20 +21,24 @@ extension IntentHandler: INSearchForMessagesIntentHandling {
 extension IntentHandler: INSendMessageIntentHandling {
     //MARK: - INSendMessageIntentHandling
     func handle(sendMessage intent: INSendMessageIntent, completion: @escaping (INSendMessageIntentResponse) -> Swift.Void){
+        print("Handle")
         let userActivity = NSUserActivity(activityType: NSStringFromClass(INSendMessageIntent.self))
         let response = INSendMessageIntentResponse(code: .success, userActivity: userActivity)
         completion(response)
     }
     
     func confirm(sendMessage intent: INSendMessageIntent, completion: @escaping (INSendMessageIntentResponse) -> Swift.Void){
+        print("Confirm")
         completion(INSendMessageIntentResponse.init(code: INSendMessageIntentResponseCode.success, userActivity: nil))
     }
     
     func resolveRecipients(forSendMessage intent: INSendMessageIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void) {
-        print(intent.recipients?.first?.nameComponents?.familyName ?? "")
-        print(intent.recipients?.first?.nameComponents?.givenName ?? "")
+        print("Resolve")
+        print(intent.recipients?.first?.displayName ?? "")
+        print(intent.recipients?.first?.contactIdentifier ?? "")
+        // Hardcoded recipient returned
         let result = INPersonResolutionResult.success(with: SupportMe.systems[0])
+        //let resultConfirmation = INPersonResolutionResult.confirmationRequired(with: SupportMe.systems[0])
         completion([result])
-        
     }
 }
